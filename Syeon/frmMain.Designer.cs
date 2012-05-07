@@ -50,6 +50,9 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.txtLog = new System.Windows.Forms.TextBox();
             this.rdoClearLog = new System.Windows.Forms.CheckBox();
+            this.saveSimulationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveScriptAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pctSimSurface)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.tabFiles.SuspendLayout();
@@ -60,9 +63,9 @@
             // pctSimSurface
             // 
             this.pctSimSurface.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pctSimSurface.Location = new System.Drawing.Point(304, 27);
+            this.pctSimSurface.Location = new System.Drawing.Point(371, 27);
             this.pctSimSurface.Name = "pctSimSurface";
-            this.pctSimSurface.Size = new System.Drawing.Size(493, 321);
+            this.pctSimSurface.Size = new System.Drawing.Size(493, 332);
             this.pctSimSurface.TabIndex = 0;
             this.pctSimSurface.TabStop = false;
             // 
@@ -72,7 +75,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(278, 434);
+            this.tabPage1.Size = new System.Drawing.Size(345, 434);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "[Untitled simulation 1]";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -83,9 +86,10 @@
             this.rtScriptText.Font = new System.Drawing.Font("Consolas", 10F);
             this.rtScriptText.Location = new System.Drawing.Point(3, 3);
             this.rtScriptText.Name = "rtScriptText";
-            this.rtScriptText.Size = new System.Drawing.Size(272, 428);
+            this.rtScriptText.Size = new System.Drawing.Size(339, 428);
             this.rtScriptText.TabIndex = 0;
             this.rtScriptText.Text = "";
+            this.rtScriptText.TextChanged += new System.EventHandler(this.rtScriptText_TextChanged);
             // 
             // tabFiles
             // 
@@ -93,7 +97,7 @@
             this.tabFiles.Location = new System.Drawing.Point(12, 27);
             this.tabFiles.Name = "tabFiles";
             this.tabFiles.SelectedIndex = 0;
-            this.tabFiles.Size = new System.Drawing.Size(286, 460);
+            this.tabFiles.Size = new System.Drawing.Size(353, 460);
             this.tabFiles.TabIndex = 1;
             // 
             // statusStrip
@@ -102,7 +106,7 @@
             this.toolStripStatus});
             this.statusStrip.Location = new System.Drawing.Point(0, 494);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(803, 22);
+            this.statusStrip.Size = new System.Drawing.Size(876, 22);
             this.statusStrip.SizingGrip = false;
             this.statusStrip.TabIndex = 2;
             // 
@@ -120,7 +124,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(803, 24);
+            this.menuStrip.Size = new System.Drawing.Size(876, 24);
             this.menuStrip.TabIndex = 3;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -129,6 +133,8 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newSimulationToolStripMenuItem,
             this.openSimulationToolStripMenuItem,
+            this.saveSimulationToolStripMenuItem,
+            this.saveScriptAsToolStripMenuItem,
             this.closeSimulationToolStripMenuItem,
             this.toolStripSeparator1,
             this.exitToolStripMenuItem});
@@ -139,31 +145,31 @@
             // newSimulationToolStripMenuItem
             // 
             this.newSimulationToolStripMenuItem.Name = "newSimulationToolStripMenuItem";
-            this.newSimulationToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.newSimulationToolStripMenuItem.Text = "&New simulation";
+            this.newSimulationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newSimulationToolStripMenuItem.Text = "&New...";
             // 
             // openSimulationToolStripMenuItem
             // 
             this.openSimulationToolStripMenuItem.Name = "openSimulationToolStripMenuItem";
-            this.openSimulationToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.openSimulationToolStripMenuItem.Text = "&Open simulation";
+            this.openSimulationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openSimulationToolStripMenuItem.Text = "&Open...";
             this.openSimulationToolStripMenuItem.Click += new System.EventHandler(this.openSimulationToolStripMenuItem_Click);
             // 
             // closeSimulationToolStripMenuItem
             // 
             this.closeSimulationToolStripMenuItem.Name = "closeSimulationToolStripMenuItem";
-            this.closeSimulationToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.closeSimulationToolStripMenuItem.Text = "&Close simulation";
+            this.closeSimulationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.closeSimulationToolStripMenuItem.Text = "&Close script";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -178,7 +184,7 @@
             // runStopToolStripMenuItem
             // 
             this.runStopToolStripMenuItem.Name = "runStopToolStripMenuItem";
-            this.runStopToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.runStopToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.runStopToolStripMenuItem.Text = "Run / Stop";
             this.runStopToolStripMenuItem.Click += new System.EventHandler(this.runStopToolStripMenuItem_Click);
             // 
@@ -206,9 +212,9 @@
             // btnRunStop
             // 
             this.btnRunStop.Enabled = false;
-            this.btnRunStop.Location = new System.Drawing.Point(304, 364);
+            this.btnRunStop.Location = new System.Drawing.Point(371, 365);
             this.btnRunStop.Name = "btnRunStop";
-            this.btnRunStop.Size = new System.Drawing.Size(68, 123);
+            this.btnRunStop.Size = new System.Drawing.Size(68, 98);
             this.btnRunStop.TabIndex = 4;
             this.btnRunStop.Text = "Run";
             this.btnRunStop.UseVisualStyleBackColor = true;
@@ -220,8 +226,9 @@
             // 
             // txtLog
             // 
+            this.txtLog.Cursor = System.Windows.Forms.Cursors.No;
             this.txtLog.Font = new System.Drawing.Font("Courier New", 10F);
-            this.txtLog.Location = new System.Drawing.Point(378, 364);
+            this.txtLog.Location = new System.Drawing.Point(445, 365);
             this.txtLog.Multiline = true;
             this.txtLog.Name = "txtLog";
             this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -231,18 +238,31 @@
             // rdoClearLog
             // 
             this.rdoClearLog.AutoSize = true;
-            this.rdoClearLog.Location = new System.Drawing.Point(379, 469);
+            this.rdoClearLog.Location = new System.Drawing.Point(445, 469);
             this.rdoClearLog.Name = "rdoClearLog";
             this.rdoClearLog.Size = new System.Drawing.Size(175, 17);
             this.rdoClearLog.TabIndex = 6;
             this.rdoClearLog.Text = "&Clear log on new simulation run.";
             this.rdoClearLog.UseVisualStyleBackColor = true;
             // 
+            // saveSimulationToolStripMenuItem
+            // 
+            this.saveSimulationToolStripMenuItem.Name = "saveSimulationToolStripMenuItem";
+            this.saveSimulationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveSimulationToolStripMenuItem.Text = "Save...";
+            this.saveSimulationToolStripMenuItem.Click += new System.EventHandler(this.saveSimulationToolStripMenuItem_Click);
+            // 
+            // saveScriptAsToolStripMenuItem
+            // 
+            this.saveScriptAsToolStripMenuItem.Name = "saveScriptAsToolStripMenuItem";
+            this.saveScriptAsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveScriptAsToolStripMenuItem.Text = "Save As...";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(803, 516);
+            this.ClientSize = new System.Drawing.Size(876, 516);
             this.Controls.Add(this.rdoClearLog);
             this.Controls.Add(this.txtLog);
             this.Controls.Add(this.btnRunStop);
@@ -257,6 +277,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Syeon";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMain_FormClosed);
+            this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pctSimSurface)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabFiles.ResumeLayout(false);
@@ -280,7 +301,6 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem simulationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatus;
         private System.Windows.Forms.Button btnRunStop;
         private System.Windows.Forms.ToolStripMenuItem newSimulationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openSimulationToolStripMenuItem;
@@ -291,7 +311,11 @@
         private System.Windows.Forms.ToolStripMenuItem manualToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
-        private System.Windows.Forms.TextBox txtLog;
         private System.Windows.Forms.CheckBox rdoClearLog;
+        public System.Windows.Forms.ToolStripStatusLabel toolStripStatus;
+        private System.Windows.Forms.ToolStripMenuItem saveSimulationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveScriptAsToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        public System.Windows.Forms.TextBox txtLog;
     }
 }

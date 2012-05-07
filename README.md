@@ -1,4 +1,4 @@
 Syeon
 =====
 
-Simulation application with an Python-based DSL.
+Simulation application with a Python-based DSL.

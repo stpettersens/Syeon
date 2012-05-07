@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syeon", "Syeon\Syeon.csproj", "{FBF6FFE9-B6E1-41BE-967F-188109647067}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "SyeonContent", "SyeonContent\SyeonContent.contentproj", "{D71F45BE-C78E-442E-8F5C-287390D27CDA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FBF6FFE9-B6E1-41BE-967F-188109647067}.Debug|x86.ActiveCfg = Debug|x86
+		{FBF6FFE9-B6E1-41BE-967F-188109647067}.Debug|x86.Build.0 = Debug|x86
+		{FBF6FFE9-B6E1-41BE-967F-188109647067}.Release|x86.ActiveCfg = Release|x86
+		{FBF6FFE9-B6E1-41BE-967F-188109647067}.Release|x86.Build.0 = Release|x86
+		{D71F45BE-C78E-442E-8F5C-287390D27CDA}.Debug|x86.ActiveCfg = Debug|x86
+		{D71F45BE-C78E-442E-8F5C-287390D27CDA}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
